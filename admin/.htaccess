@@ -1,0 +1,40 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)/?$ $1.php [NC,L]
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^login?$ index.php
+RewriteRule ^404?$ 404.php
+
+RewriteRule ^dashboard?$ dashboard.php
+RewriteRule ^logged?$ logout.php
+RewriteRule ^event-type?$ event-type.php
+RewriteRule ^role?$ role.php
+RewriteRule ^admin?$ admin.php
+RewriteRule ^users?$ users.php
+RewriteRule ^create-event?$ create-event.php
+RewriteRule ^upcoming-event?$ ongoing-event.php
+RewriteRule ^past-event?$ past-event.php
+
+RewriteRule ^location?$ location.php
+RewriteRule ^upcoming-event-calendar?$ calendar.php
+RewriteRule ^logout?$ logout.php
+RewriteRule ^manage-event?$ manage-event.php
+RewriteRule ^professional-type?$ professional-type.php
+
+RewriteRule ^city?$ city.php
+RewriteRule ^state?$ state.php
+RewriteRule ^amenities?$ amenities.php
+RewriteRule ^create-event-venue?$ add-event-venue.php
+RewriteRule ^event-venue?$ event-venue.php
+RewriteRule ^venue-type?$ venue-type.php
+
+RewriteRule ^edit-role/(.*)/?$ edit-role.php?id=$1 [NC,L]
+RewriteRule ^edit-city/(.*)/?$ edit-city.php?id=$1 [NC,L]
+RewriteRule ^edit-admin/(.*)/?$ edit-admin.php?id=$1 [NC,L]
+RewriteRule ^view/(.*)/?$ view.php?id=$1 [NC,L]
+RewriteRule ^profile/(.*)/?$ profile.php?id=$1 [NC,L]
+ErrorDocument 404 /404.php
+</IfModule>
