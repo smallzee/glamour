@@ -4,15 +4,7 @@
      $current_date = date('m/d/Y');
     $sn = 1;
 
-    $sql_city = $db->query("SELECT id,state_id,name FROM ".DB_PREFIX."city ORDER BY name");
-    while ($rs_city = $sql_city->fetch(PDO::FETCH_ASSOC)) {
-        $all_cities[] = $rs_city;
-    }
 
-    $sql_area = $db->query("SELECT id,city_id,name FROM ".DB_PREFIX."area ORDER BY name");
-    while ($rs_area = $sql_area->fetch(PDO::FETCH_ASSOC)){
-        $all_areas[] = $rs_area;
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,7 +52,7 @@ if(isset($_COOKIE['design-skin'])){
     $skin = "blue";
 }
 ?>
-<body class="hold-transition skin-<?= $skin ?> sidebar-mini" style="font-size: 15px;">
+<body class="hold-transition skin-<?= $skin ?> sidebar-mini" >
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -86,7 +78,7 @@ if(isset($_COOKIE['design-skin'])){
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= adorable_avatar($name) ?>" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?= admin_detail('fname') ?> (<?= role(admin_detail('role')) ?>)</span>
+                                <span class="hidden-xs"><?= admin_detail('fname') ?></span>
                             </a>
                         </li>
                     </ul>
@@ -97,90 +89,48 @@ if(isset($_COOKIE['design-skin'])){
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="<?= adorable_avatar($name) ?>" class="img-circle" alt="User Image">
-                    </div>
-                    <div class="pull-left info">
-                        <p><?= $name ?></p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    </div>
-                </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-home text-blue"></i> <span>Dashboard</span></a></li>
-
-                    <li><a href="<?= base_url('admin/role') ?>"><i class="fa fa-users text-grey"></i> <span>Role</span></a></li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-calendar-check-o text-warning"></i> <span>Events</span>
-                            <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= base_url('admin/past-event')  ?>"><i class="fa fa-circle-o-notch"></i> Past Events</a></li>
-                            <li><a href="<?= base_url('admin/create-event')  ?>"><i class="fa fa-circle-o-notch"></i>Create Event</a></li>
-                            <li><a href="<?= base_url('admin/upcoming-event') ?>"><i class="fa fa-circle-o-notch"></i> Upcoming Event(s)</a></li>
-                            <li><a href="<?= base_url('admin/upcoming-event-calendar') ?>"><i class="fa fa-circle-o-notch"></i> Upcoming Event(s) Calendar</a></li>
-                        </ul>
+                    <li>
+                        <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-home text-blue"></i> <span>Dashboard</span></a>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-calendar-check-o text-green"></i> <span>Events Venue</span>
-                            <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= base_url('admin/event-venue')  ?>"><i class="fa fa-circle-o-notch"></i> Event Venue</a></li>
-                            <li><a href="<?= base_url('admin/event-type')  ?>"><i class="fa fa-circle-o-notch"></i> Event Type</a></li>
-                            <li><a href="<?= base_url('admin/venue-type') ?>"><i class="fa fa-circle-o-notch"></i> Venue Type</a></li>
-                            <li><a href="<?= base_url('admin/amenities') ?>"><i class="fa fa-circle-o-notch"></i> Event Amenities</a></li>
-                            <li><a href="<?= base_url('admin/create-event-venue') ?>"><i class="fa fa-circle-o-notch"></i> Create Event Venue</a></li>
-                        </ul>
+                    <li>
+                        <a href="<?= base_url('admin/admin') ?>"><i class="fa fa-users text-blue"></i> <span>Administrative</span></a>
+                    </li>
+
+                    <li>
+                        <a href="<?= base_url('admin/users') ?>"><i class="fa fa-users text-blue"></i> <span>All Registered Clients</span></a>
+                    </li>
+
+                    <li class="header">VENDORS</li>
+
+                    <li>
+                        <a href="<?= base_url('admin/new-vendors.php') ?>"><i class="fa fa-users text-blue"></i> <span>Create New Vendors</span></a>
+                    </li>
+
+                    <li>
+                        <a href="<?= base_url('admin/vendors.php') ?>"><i class="fa fa-users text-blue"></i> <span>All Registered Vendors</span></a>
+                    </li>
+
+                    <li class="header">EVENT CATEGORY</li>
+
+
+                    <li>
+                        <a href="<?= base_url('admin/event-category.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>All Event Category</span></a>
                     </li>
 
 
-                    <li><a href="<?= base_url('admin/admin') ?>"><i class="fa fa-users text-purple"></i> <span>Administrative</span></a></li>
-
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-calendar-o text-aqua"></i> <span> Event Professional</span>
-                            <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= base_url('admin/professional-type')  ?>"><i class="fa fa-circle-o-notch"></i> Event Professional Type</a></li>
-                            <li><a href=""><i class="fa fa-circle-o-notch"></i> All Event Professionals</a></li>
-                            <li><a href="<?= base_url('admin/')  ?>"><i class="fa fa-circle-o-notch"></i>Create Event Professional</a></li>
-                        </ul>
+                    <li>
+                        <a href="<?= base_url('admin/create-event-category.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Create Event Category</span></a>
                     </li>
 
-                    <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-users text-yellow"></i> <span>All Registered Users</span></a></li>
+                    <li class="header">EVENT BOOKING</li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-map-marker text-info"></i> <span> Event Venue Location</span>
-                            <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= base_url('admin/city')  ?>"><i class="fa fa-circle-o-notch"></i> Cities</a></li>
-                            <li><a href="<?= base_url('admin/state')  ?>"><i class="fa fa-circle-o-notch"></i> States</a></li>
-                            <li><a href="<?= base_url('admin/area')  ?>"><i class="fa fa-circle-o-notch"></i> Area</a></li>
-                        </ul>
+                    <li>
+                        <a href="<?= base_url('admin/logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a>
                     </li>
-
-                    <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-credit-card text-success"></i> <span>Venue Payment Transactions</span></a></li>
-                    <li><a href="<?= base_url('admin/logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->

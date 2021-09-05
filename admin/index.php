@@ -7,6 +7,7 @@
 	    return;
     }
 
+
 	if (isset($_POST['login'])) {
 		$email = $_POST['email'];
 		$password = sha1($_POST['password']);
@@ -29,7 +30,7 @@
                 $data['password']  = 'xxx';
             }
             $_SESSION[USER_SESSION_HOLDER] = $data;
-            redirect("dashboard");
+            redirect(base_url('admin/dashboard'));
         }
 	}
 ?>

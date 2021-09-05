@@ -14,7 +14,7 @@ require_once 'assets/head.php';
 <section class="content">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-purple-gradient elevation-3">
+            <div class="info-box bg-blue-gradient elevation-3">
                 <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
                 <div class="info-box-content">
                     <h2 class="info-box-text">My Events</h2>
@@ -32,7 +32,7 @@ require_once 'assets/head.php';
         </div>
 
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-purple-gradient elevation-3">
+            <div class="info-box bg-blue-gradient elevation-3">
                 <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
                 <div class="info-box-content">
                     <h2 class="info-box-text">My Active Events</h2>
@@ -64,7 +64,7 @@ require_once 'assets/head.php';
         </div>
 
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-green-gradient elevation-3">
+            <div class="info-box bg-blue-gradient elevation-3">
                 <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
                 <div class="info-box-content">
                     <h2 class="info-box-text">Past Events</h2>
@@ -77,23 +77,22 @@ require_once 'assets/head.php';
             <!-- /.info-box -->
         </div>
 
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-yellow-gradient elevation-3">
+        <!--<div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box bg-blue-gradient elevation-3">
                 <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
                 <div class="info-box-content">
                     <h2 class="info-box-text">Ordered Event venues</h2>
                     <h4 class="info-box-number">
                         <?php
-                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."order_venues WHERE user_id='$user_id' and verified !=0");
+/*                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."order_venues WHERE user_id='$user_id' and verified !=0");
                         $total = $sql->rowCount();
                         echo $total;
-                        ?>
+                        */?>
                     </h4>
                 </div>
-                <!-- /.info-box-content -->
+
             </div>
-            <!-- /.info-box -->
-        </div>
+        </div>-->
 
 
     </div>

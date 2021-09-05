@@ -25,7 +25,7 @@
             <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <h4 class="text-light footer-head">Company</h4>
                 <ul class="list-unstyled footer-list mt-4">
-                    <li><a href="<?= base_url('about-us') ?>" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> About us</a></li>
+                    <li><a href="<?= base_url('about-us') ?>" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> About Developer</a></li>
                     <li><a href="<?= base_url('contact-us') ?>" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Contact Us</a></li>
                 </ul>
             </div><!--end col-->

@@ -79,7 +79,7 @@
 
  	function admin_detail($value){
  		global $db;
- 		$email = $_SESSION[ADMIN_SESSION_HOLDER]['email'];
+ 		$email = $_SESSION[USER_SESSION_HOLDER]['email'];
  		$sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE email ='$email'");
  		$rs = $sql->fetch(PDO::FETCH_ASSOC);
  		return $rs[$value];
@@ -260,9 +260,9 @@
 
     function admin_is_required_to_login(){
         if (!is_admin_login() or admin_detail('status') != 1){
-            unset($_SESSION['logged']);
-            unset($_SESSION[ADMIN_SESSION_HOLDER]);
-            redirect(base_url('admin/login'));
+            unset($_SESSION['loggedin']);
+            unset($_SESSION[USER_SESSION_HOLDER]);
+            //redirect(base_url('admin'));
         }
     }
 

@@ -8,14 +8,10 @@
 
 $page_title = "Administrative";
 require_once '../core/core.php';
-require_permission('manage_admins');
-$role_sql = $db->query("SELECT * FROM ".DB_PREFIX."role WHERE id > 1");
-while ($rs = $role_sql->fetch(PDO::FETCH_ASSOC)){
-    $role_array[] = $rs;
-}
+
 
 if (isset($_POST['add'])){
-    require_permission('create_new_admin');
+    //require_permission('create_new_admin');
 
     $fname = trim( $_POST['fname']);
     $email = strtolower($_POST['email']);
@@ -42,13 +38,6 @@ if (isset($_POST['add'])){
         $error[] = "Email address should be between 10 - 200 characters";
     }
 
-    for($ii =0; $ii < count($role_array); $ii++){
-        $role_id[] = $role_array[$ii]['id'];
-    }
-
-    if (!in_array($role, $role_id)){
-        $error[] = "Invalid role selected";
-    }
 
     $error_count = count($error);
     if ($error_count == 0){
@@ -56,22 +45,8 @@ if (isset($_POST['add'])){
         $pass = hash_password($password);
 
         $in = $db->query("INSERT INTO ".DB_PREFIX."users(password,email,fname,role)
-        VALUES('$pass','$email','$fname','$role')");
+        VALUES('$pass','$email','$fname',2)");
 
-        $subject = "Admin Account Details";
-        $msg_body= "<p>Dear, ".ucwords($fname)."</p>";
-        $msg_body.= "<p> Your account details are stated below! </p>";
-        $msg_body.="<ol>".
-                "<li> Full Name : ".$fname."</li>".
-                "<li> Email Address : ".$fname."</li>".
-                "<li> Password : ".$password."</li>".
-                "<li> User Role : ".role($role)."</li>".
-                "<li> Account Status : Approved</li>".
-                "<li> Password : ".$password."</li>"
-            ."</ol>";
-        $msg_body.= '<p style="text-align:right;">Best Regards <br> '.WEB_TITLE.' Admin </p>';
-
-        send_mail($msg_body,$subject,$email);
 
         set_flash("Account created successfully check $email for admin account details", "info");
 
@@ -118,22 +93,22 @@ require_once 'libs/head.php';
                         </div>
 
 
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="">Role</label>
-                                <select name="role" class="form-control" required id="">
-                                    <?php
-                                    if (is_array($role_array)){
-                                        foreach ($role_array as $value){
-                                            ?>
-                                            <option value="<?= $value['id'] ?>"><?= ucwords($value['name']) ?></option>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
+<!--                        <div class="col-sm-12">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="">Role</label>-->
+<!--                                <select name="role" class="form-control" required id="">-->
+<!--                                    --><?php
+//                                    if (is_array($role_array)){
+//                                        foreach ($role_array as $value){
+//                                            ?>
+<!--                                            <option value="--><?//= $value['id'] ?><!--">--><?//= ucwords($value['name']) ?><!--</option>-->
+<!--                                            --><?php
+//                                        }
+//                                    }
+//                                    ?>
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -190,28 +165,24 @@ require_once 'libs/head.php';
                     <thead>
                     <tr>
                         <th>SN</th>
-                        <th>Image</th>
                         <th>Full Name</th>
                         <th>Email Address</th>
                         <th>Phone Number</th>
                         <th>Account Status</th>
-                        <th>Role</th>
                         <th>Date</th>
-                        <th>Actions</th>
+<!--                        <th>Actions</th>-->
                     </tr>
                     </thead>
 
                     <tfoot>
                     <tr>
                         <th>SN</th>
-                        <th>Image</th>
                         <th>Full Name</th>
                         <th>Email Address</th>
                         <th>Phone Number</th>
                         <th>Account Status</th>
-                        <th>Role</th>
                         <th>Date</th>
-                        <th>Actions</th>
+<!--                        <th>Actions</th>-->
                     </tr>
                     </tfoot>
 
@@ -222,21 +193,14 @@ require_once 'libs/head.php';
                         ?>
                         <tr>
                             <td><?= $sn++ ?></td>
-                            <td><img src="<?= adorable_avatar($rs['fname']) ?>" alt="" class="img-circle img-size img-thumbnail"></td>
                             <td><?= $rs['fname'] ?></td>
                             <td><?= $rs['email'] ?></td>
                             <td><?= $rs['phone'] ?></td>
                             <td><?= user_status($rs['status']) ?></td>
-                            <td><?= role($rs['role']) ?></td>
                             <td><?= date('Y-m-d h:i:s:a',$rs['created_at']) ?></td>
-                            <td>
-                                <?if ($rs['id'] != admin_detail('id')) : ?>
-                                    <div class="btn-group">
-                                        <a href="<?= EDIT_ADMIN.$rs['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
-                                    </div>
-                                <?php endif; ?>
-                            </td>
+<!--                            <td>-->
+<!--                                <a href="--><?//= EDIT_ADMIN.$rs['id'] ?><!--" class="btn btn-primary btn-sm">Edit</a>-->
+<!--                            </td>-->
                         </tr>
                         <?php
                     }

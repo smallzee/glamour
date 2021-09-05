@@ -51,7 +51,7 @@
         $skin = "blue";
     }
 ?>
-<body class="hold-transition skin-<?= $skin ?> sidebar-mini" style="font-size: 15px;">
+<body class="hold-transition skin-<?= $skin ?> sidebar-mini" style="font-size: 13px;">
 <div class="wrapper">
     <header class="main-header">
         <!-- Logo -->
@@ -102,14 +102,33 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-home text-blue"></i> <span>Dashboard</span></a></li>
-                <li><a href="<?= base_url('join-event') ?>"><i class="fa fa-calendar-check-o text-yellow"></i> <span>Join Event</span></a></li>
-                <li><a href="<?= base_url('past-event') ?>"><i class="fa fa-calendar text-green"></i> <span>Past Event</span></a></li>
-                <li><a href="<?= base_url('my-event') ?>"><i class="fa fa-calendar-check-o"></i> My Event(s)</a></li>
-                <li><a href="<?= base_url('gallery') ?>"><i class="fa fa-image text-white"></i> <span>My Gallery</span></a></li>         <li><a href="<?= base_url('my-event') ?>"><i class="fa fa-home text-purple"></i> <span>Requested Venues</span></a></li>
-                <li><a href="<?= base_url('ongoing-event') ?>"><i class="fa fa-calendar text-aqua"></i> <span>Upcoming Events</span></a></li>
-                <li><a href="<?= base_url('payment') ?>"><i class="fa fa-credit-card text-primary"></i> <span>Payment Transactions</span></a></li>
-                <li><a href="<?= base_url('order-venue') ?>"><i class="fa fa-calendar-check-o"></i> Ordered Event Venue(s)</a></li>
-                <li><a href="<?= base_url('calendar') ?>"><i class="fa fa-calendar-plus-o text-pink"></i> <span>Upcoming Events Calendar</span></a></li>
+                <li>
+                    <a href="<?= base_url('join-event') ?>"><i class="fa fa-calendar-check-o text-blue"></i> <span>Join Event</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url('past-event') ?>"><i class="fa fa-calendar text-blue"></i> <span>Past Event</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url('my-event') ?>"><i class="fa fa-calendar-check-o text-blue"></i> My Event(s)</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="--><?//= base_url('gallery') ?><!--"><i class="fa fa-image text-blue"></i> <span>My Gallery</span></a>-->
+<!--                </li>-->
+                <li>
+                    <a href="<?= base_url('my-event') ?>"><i class="fa fa-home text-blue"></i> <span>Requested Venues</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url('ongoing-event') ?>"><i class="fa fa-calendar text-blue"></i> <span>Upcoming Events</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url('payment') ?>"><i class="fa fa-credit-card text-blue"></i> <span>Payment Transactions</span></a>
+                </li>
+                <li>
+                    <a href="<?= base_url('order-venue') ?>"><i class="fa fa-calendar-check-o text-blue"></i> Ordered Event Venue(s)</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('calendar') ?>"><i class="fa fa-calendar-plus-o text-blue"></i> <span>Upcoming Events Calendar</span></a>
+                </li>
                 <li><a href="<?= base_url('logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
             </ul>
         </section>

@@ -21,7 +21,7 @@
 
     date_default_timezone_set("Africa/Lagos");
 
-    define("HOME_DIR", "http://projects.io/web/glamour-event/");
+    define("HOME_DIR", "http://projects.io/web/glamour/");
     define("WEB_EMAIL","support@glamourevent.com");
     define("WEB_TITLE","Glamour");
     define("WEB_SUB_TITLE", "GL");
@@ -70,7 +70,7 @@
         define('EDIT_STATE',base_url('admin/edit-state/'));
 	}else{
 		define('DB_HOST', 'localhost');
-	    define('DB_TABLE', 'web_app_kentalevent');
+	    define('DB_TABLE', 'fpe_web_glamour');
 	    define('DB_USER', 'root');
 	    define('DB_PASSWORD', '');
 

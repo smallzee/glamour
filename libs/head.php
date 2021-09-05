@@ -106,9 +106,9 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu">
                 <li><a href="<?= base_url('') ?>"><i class="mdi mdi-home"></i> Home</a></li>
-                <li><a href="<?= base_url('venues') ?>"><i class="mdi mdi-calendar"></i> Browse Event Venues</a></li>
-                <li><a href="<?= base_url('about-us') ?>"><i class="mdi mdi-information-variant"></i> About Us</a></li>
-                <li><a href="<?= base_url('contact-us'); ?>"><i class="mdi mdi-headphones-settings"></i> Contact Us</a></li>
+                <li><a href="<?= base_url('book.php') ?>"> Event Booking</a></li>
+                <li><a href="<?= base_url('about-us') ?>"> About Developer</a></li>
+                <li><a href="<?= base_url('contact-us'); ?>">Contact Us</a></li>
 
             </ul><!--end navigation menu-->
 

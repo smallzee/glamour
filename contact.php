@@ -12,12 +12,11 @@ require_once 'libs/head.php';
 ?>
 
 <!-- Hero Start -->
-        <section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('case.jpg') ?>')">
+        <section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('background.jpg') ?>')">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
                         <div class="page-next-level">
-                            <h4 class="title text-white">Contact Us</h4>
                             <div class="page-next">
                                 <nav aria-label="breadcrumb" class="d-inline-block">
                                     <ul class="breadcrumb bg-white rounded shadow mb-0">
@@ -56,7 +55,7 @@ require_once 'libs/head.php';
                                 <div class="content mt-3">
                                     <h4 class="title font-weight-bold">Phone</h4>
                                     <p class="text-muted">Start working with <?= WEB_TITLE  ?> that can provide everything</p>
-                                    <a href="#" class="text-primary">+234</a>
+<!--                                    <a href="#" class="text-primary">+234</a>-->
                                 </div>
                             </div>
                         </div>

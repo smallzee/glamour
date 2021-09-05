@@ -33,7 +33,6 @@ require_once 'libs/head.php';
                     <thead>
                     <tr>
                         <th>SN</th>
-                        <th>Image</th>
                         <th>Full Name</th>
                         <th>Email Address</th>
                         <th>Phone Number</th>
@@ -48,7 +47,6 @@ require_once 'libs/head.php';
                     <tfoot>
                     <tr>
                         <th>SN</th>
-                        <th>Image</th>
                         <th>Full Name</th>
                         <th>Email Address</th>
                         <th>Phone Number</th>
@@ -66,7 +64,6 @@ require_once 'libs/head.php';
                         ?>
                         <tr>
                             <td><?= $sn++ ?></td>
-                            <td><img src="<?= adorable_avatar($rs['fname']) ?>" alt="" class="img-circle img-size img-thumbnail"></td>
                             <td><?= $rs['fname'] ?></td>
                             <td><?= $rs['email'] ?></td>
                             <td><?= $rs['phone'] ?></td>

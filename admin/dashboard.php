@@ -13,113 +13,84 @@ require_once 'libs/head.php';
 
 <section class="content">
     <div class="row">
-        <div class="col-sm-12"><?= flash(); ?></div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-purple-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-users"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">All Registered Users</h2>
-                    <h4 class="info-box-number">
-                        <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE role='1'");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+        <div class="col-sm-12">
+            <?= flash(); ?>
         </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-yellow-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-users"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">All Administrative</h2>
-                    <h4 class="info-box-number">
-                        <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE role>1");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
+        <div class="col-sm-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?= $page_title ?></h3>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-green-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-users"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Role</h2>
-                    <h4 class="info-box-number">
-                       <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."role");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
                 </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
+                <div class="box-body">
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Upcoming Event(s)</h2>
-                    <h4 class="info-box-number">
-                       <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."manage_event WHERE event_date>='$current_date'");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Total Registered Client</div>
+                                <div class="panel-body">
+                                    <h1 align="center">
+                                        <?php
+                                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE role='1'");
+                                        $total = $sql->rowCount();
+                                        echo $total;
+                                        ?>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-red-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Past Event(s)</h2>
-                    <h4 class="info-box-number">
-                       <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."manage_event WHERE event_date<='$current_date'");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Total Glamour Admin</div>
+                                <div class="panel-body">
+                                    <h1 align="center">
+                                        <?php
+                                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE role>1");
+                                        $total = $sql->rowCount();
+                                        echo $total;
+                                        ?>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="info-box bg-green-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">All Event(s)</h2>
-                    <h4 class="info-box-number">
-                       <?php 
-	                		$sql = $db->query("SELECT * FROM ".DB_PREFIX."manage_event");
-	                		$total = $sql->rowCount();
-	                		echo $total;
-	                	 ?>
-                    </h4>
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Total Glamour Vendors</div>
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Total Event Category</div>
+                                <div class="panel-body">
+
+                                    <h1 align="center">
+                                        <?php
+                                            $sql = $db->query("SELECT * FROM ".DB_PREFIX."event_type");
+                                            echo $sql->rowCount();
+                                        ?>
+                                    </h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
+
         </div>
     </div>
 </section>

@@ -38,36 +38,35 @@ if (isset($_POST['login'])){
             $data['password'] = 'xxx';
         }
         $_SESSION[USER_SESSION_HOLDER] = $data;
-        redirect('dashboard');
+        redirect(base_url('dashboard'));
     }
 }
 require_once 'libs/head.php';
 ?>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Recover Password</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Recover Password</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                ...-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- Hero Start -->
-<section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('case.jpg') ?>')">
+<section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('background.jpg') ?>')">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
                 <div class="page-next-level">
-                    <h4 class="title text-white">Login </h4>
                     <div class="page-next">
                         <nav aria-label="breadcrumb" class="d-inline-block">
                             <ul class="breadcrumb bg-white rounded shadow mb-0">
@@ -131,18 +130,18 @@ require_once 'libs/head.php';
                                                 <label class="custom-control-label" for="customCheck1">Remember me</label>
                                             </div>
                                         </div>
-                                        <p class="forgot-pass mb-0"><a href="#" data-toggle="modal" data-target="#exampleModal" class="text-dark font-weight-bold">Forgot password ?</a></p>
+<!--                                        <p class="forgot-pass mb-0"><a href="#" data-toggle="modal" data-target="#exampleModal" class="text-dark font-weight-bold">Forgot password ?</a></p>-->
                                     </div>
                                 </div><!--end col-->
 
                                 <div class="col-lg-12 mb-0">
                                     <button class="btn btn-primary btn-block" type="submit" name="login">Login</button>
                                 </div><!--end col-->
-
-                                <div class="col-sm-12">
-                                  <p>  <center><h5>OR</h5></center></p>
-                                  <a href="<?= $continue_with_google ?>" class="btn btn-danger btn-block"><i class="fa fa-google-plus"></i> Continue with your gmail</a>
-                                </div>   
+<!---->
+<!--                                <div class="col-sm-12">-->
+<!--                                  <p>  <center><h5>OR</h5></center></p>-->
+<!--                                  <a href="--><?//= $continue_with_google ?><!--" class="btn btn-danger btn-block"><i class="fa fa-google-plus"></i> Continue with your gmail</a>-->
+<!--                                </div>   -->
 
                                 <div class="col-12 text-center">
                                     <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small> <a href="<?= base_url('register') ?>" class="text-dark font-weight-bold">Register</a></p>

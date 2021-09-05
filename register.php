@@ -65,12 +65,11 @@ require_once 'libs/head.php';
 ?>
 
 !-- Hero Start -->
-<section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('case.jpg') ?>')">
+<section class="bg-half bg-light d-table w-100" style="background-image: url('<?=img_url('background.jpg') ?>')">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
                 <div class="page-next-level">
-                    <h4 class="title text-white"> Register </h4>
                     <div class="page-next">
                         <nav aria-label="breadcrumb" class="d-inline-block">
                             <ul class="breadcrumb bg-white rounded shadow mb-0">
@@ -149,14 +148,14 @@ require_once 'libs/head.php';
                                     </div>
                                 </div><!--end col-->
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" required class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">I Accept <a href="#" class="text-primary">Terms And Condition</a></label>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
+<!--                                <div class="col-md-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <div class="custom-control custom-checkbox">-->
+<!--                                            <input type="checkbox" required class="custom-control-input" id="customCheck1">-->
+<!--                                            <label class="custom-control-label" for="customCheck1">I Accept <a href="#" class="text-primary">Terms And Condition</a></label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>end col-->
 
                                 <div class="col-md-12">
                                     <button class="btn btn-primary btn-block" name="register" type="submit">Register</button>
