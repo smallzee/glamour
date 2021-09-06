@@ -6,15 +6,9 @@
  * Time: 2:15 PM
  */
 $page_title = "Login";
-//require_once 'core/core.php';
-require_once 'googleclient.php';
+require_once 'core/core.php';
 
-$continue_with_google = "";
-if (!isset($_SESSION[GOOGLE_USER_ACCESS_TOKEN])){
-    $continue_with_google = $google_client->createAuthUrl();
-}else{
-    $continue_with_google = $google_client->createAuthUrl();
-}
+
 
 if (isset($_POST['login'])){
     $email = $_POST['email'];

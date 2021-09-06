@@ -31,38 +31,39 @@ require_once 'assets/head.php';
                     <thead>
                     <tr>
                         <th>SN</th>
+                        <th>Event Type</th>
                         <th>Amount Paid</th>
                         <th>Reference</th>
                         <th>Payment Status</th>
                         <th>Created At</th>
                         <th>Paid At</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>SN</th>
+                        <th>Event Type</th>
                         <th>Amount Paid</th>
                         <th>Reference</th>
                         <th>Payment Status</th>
                         <th>Created At</th>
                         <th>Paid At</th>
-                        <th>Actions</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     <?php
-                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."transactions WHERE user_id='$user_id' and verified !=0 ORDER BY id DESC");
+                        $sql = $db->query("SELECT t.*, et.name FROM ".DB_PREFIX."transactions t INNER JOIN ".DB_PREFIX."booking b ON t.booking_id = b.id INNER JOIN ".DB_PREFIX."event_type et ON b.event_type_id = et.id WHERE t.user_id='$user_id'  ORDER BY t.id  DESC");
                         while ($rs = $sql->fetch(PDO::FETCH_ASSOC)){
                             ?>
                             <tr>
                                 <td><?= $sn++ ?></td>
+                                <td><?= $rs['name'] ?></td>
                                 <td><?= amount_format($rs['amount']) ?></td>
                                 <td><?= $rs['reference'] ?></td>
                                 <td><?= $rs['status'] ?></td>
                                 <td><?= $rs['created_at'] ?></td>
                                 <td><?= $rs['paid_at'] ?></td>
-                                <td><a href="" class="btn btn-primary btn-sm">View Payment</a><td>
+
                             </tr>
                             <?php
                         }

@@ -7,6 +7,15 @@
  */
 $page_title = "Event Booking";
 require_once 'core/core.php';
+
+if (isset($_POST['plan'])){
+    $data = $_POST;
+    $data['user_id'] = user_details('id');
+    $data['email'] = user_details('email');
+
+    redirect_paystack($data);
+}
+
 require_once 'assets/head.php';
 ?>
 
@@ -28,7 +37,7 @@ require_once 'assets/head.php';
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="">Event Type</label>
-                            <select name="event_type" required id="event_type" class="form-control">
+                            <select name="event_type_id" required id="event_type" class="form-control">
                                 <option value="" disabled selected>Select</option>
                                 <?php
 
@@ -45,7 +54,7 @@ require_once 'assets/head.php';
 
                         <div class="form-group">
                             <label for="">Event Planing Budget</label>
-                            <input type="text" class="form-control" required readonly name="budget" id="budget" placeholder="Event Planing Budget">
+                            <input type="text" class="form-control" required readonly name="amount" id="budget" placeholder="Event Planing Budget">
                         </div>
 
                         <div class="form-group">
@@ -60,7 +69,7 @@ require_once 'assets/head.php';
 
                         <div class="form-group">
                             <label for="">How Do You Want <?= WEB_TITLE ?> To Plan Your Event</label>
-                            <textarea name="description" id="" required class="form-control" placeholder="How Do You Want <?= WEB_TITLE ?> To Plan Your Event" style="resize: none"></textarea>
+                            <textarea name="description" id=""  required class="form-control" placeholder="How Do You Want <?= WEB_TITLE ?> To Plan Your Event" style="resize: none"></textarea>
                         </div>
 
                         <div class="form-group">

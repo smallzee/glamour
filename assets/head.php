@@ -117,7 +117,11 @@
                     <a href="<?= base_url('book.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Book Event</span></a>
                 </li>
                 <li>
-                    <a href="<?= base_url('book.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>All Event Booking</span></a>
+                    <a href="<?= base_url('event-booking.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>All Event Booking</span></a>
+                </li>
+
+                <li>
+                    <a href="<?= base_url('transaction.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Event Booking Payment</span></a>
                 </li>
 
                 <li>
