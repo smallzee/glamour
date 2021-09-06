@@ -3,8 +3,6 @@
     $name = explode(" ",admin_detail('fname'))[0];
      $current_date = date('m/d/Y');
     $sn = 1;
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -107,7 +105,7 @@ if(isset($_COOKIE['design-skin'])){
                     <li class="header">VENDORS</li>
 
                     <li>
-                        <a href="<?= base_url('admin/new-vendors.php') ?>"><i class="fa fa-users text-blue"></i> <span>Create New Vendors</span></a>
+                        <a href="<?= base_url('admin/create-new-vendor.php') ?>"><i class="fa fa-users text-blue"></i> <span>Create New Vendors</span></a>
                     </li>
 
                     <li>
@@ -127,6 +125,10 @@ if(isset($_COOKIE['design-skin'])){
                     </li>
 
                     <li class="header">EVENT BOOKING</li>
+
+                    <li>
+                        <a href="<?= base_url('admin/event-booking.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Event Booking</span></a>
+                    </li>
 
                     <li>
                         <a href="<?= base_url('admin/logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a>

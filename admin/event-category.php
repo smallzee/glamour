@@ -63,7 +63,7 @@ require_once 'libs/head.php';
                             <td><?= $rs['price'] ?></td>
                             <td><?= $rs['created_at'] ?></td>
                             <td><?= $rs['updated_at'] ?></td>
-                            <td><a href="" class="btn btn-primary btn-sm">Edit</a></td>
+                            <td><a href="edit-event-category.php?id=<?= $rs['id']?>" class="btn btn-primary btn-sm">Edit</a></td>
                         </tr>
                         <?php
                     }

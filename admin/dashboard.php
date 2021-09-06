@@ -66,7 +66,13 @@ require_once 'libs/head.php';
                             <div class="panel panel-info">
                                 <div class="panel-heading">Total Glamour Vendors</div>
                                 <div class="panel-body">
-
+                                    <h1 align="center">
+                                        <?php
+                                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."vendor ");
+                                        $total = $sql->rowCount();
+                                        echo $total;
+                                        ?>
+                                    </h1>
                                 </div>
                             </div>
                         </div>

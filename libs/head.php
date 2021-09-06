@@ -1,14 +1,3 @@
-<?php
-    $sql_city = $db->query("SELECT id,state_id,name FROM ".DB_PREFIX."city ORDER BY name");
-    while ($rs_city = $sql_city->fetch(PDO::FETCH_ASSOC)) {
-        $all_cities[] = $rs_city;
-    }
-
-    $sql_area = $db->query("SELECT id,city_id,name FROM ".DB_PREFIX."area ORDER BY name");
-    while ($rs_area = $sql_area->fetch(PDO::FETCH_ASSOC)){
-        $all_areas[] = $rs_area;
-    }
-?>
 <!Doctype html>
 <html>
 <head>

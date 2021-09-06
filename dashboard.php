@@ -13,88 +13,36 @@ require_once 'assets/head.php';
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">My Events</h2>
-                    <h4 class="info-box-number">
-                        <?php
-                            $sql = $db->query("SELECT * FROM ".DB_PREFIX."manage_event WHERE user_id='$user_id'");
-                            $total = $sql->rowCount();
-                            echo $total;
-                        ?>
-                    </h4>
+
+        <div class="col-sm-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?= $page_title ?></h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                    </div>
                 </div>
-                <!-- /.info-box-content -->
+                <div class="box-body">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                    Total Event Booking
+                                </div>
+                                <div class="panel-body">
+                                    <h1 align="center">
+
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <!-- /.info-box -->
         </div>
-
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">My Active Events</h2>
-                    <h4 class="info-box-number">
-                        <?php
-                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."manage_event WHERE user_id='$user_id' and event_date >='$current_date'");
-                        $total = $sql->rowCount();
-                        echo $total;
-                        ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Upcoming Events</h2>
-                    <h4 class="info-box-number">
-                        <?= get_upcoming_events(); ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar-check-o"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Past Events</h2>
-                    <h4 class="info-box-number">
-                        <?= get_past_events(); ?>
-                    </h4>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-
-        <!--<div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-gradient elevation-3">
-                <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-                <div class="info-box-content">
-                    <h2 class="info-box-text">Ordered Event venues</h2>
-                    <h4 class="info-box-number">
-                        <?php
-/*                        $sql = $db->query("SELECT * FROM ".DB_PREFIX."order_venues WHERE user_id='$user_id' and verified !=0");
-                        $total = $sql->rowCount();
-                        echo $total;
-                        */?>
-                    </h4>
-                </div>
-
-            </div>
-        </div>-->
-
-
     </div>
 </section>
    

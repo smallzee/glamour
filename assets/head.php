@@ -76,7 +76,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?= adorable_avatar($name) ?>" class="user-image" alt="User Image">
+
                             <span class="hidden-xs"><?= user_details('fname') ?></span>
                         </a>
                     </li>
@@ -89,47 +89,28 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="<?= adorable_avatar($name) ?>" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p><?= $name ?></p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-home text-blue"></i> <span>Dashboard</span></a></li>
                 <li>
-                    <a href="<?= base_url('join-event') ?>"><i class="fa fa-calendar-check-o text-blue"></i> <span>Join Event</span></a>
+                    <a href="<?= base_url('dashboard.php') ?>"><i class="fa fa-home text-blue"></i> <span>Dashboard</span></a>
+                </li>
+
+                <li>
+                    <a href="<?= base_url('profile.php') ?>"><i class="fa fa-user text-blue"></i> <span>My Profile</span></a>
+                </li>
+
+                <li class="header">EVENT BOOKING</li>
+                <li>
+                    <a href="<?= base_url('book.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Book Event</span></a>
                 </li>
                 <li>
-                    <a href="<?= base_url('past-event') ?>"><i class="fa fa-calendar text-blue"></i> <span>Past Event</span></a>
+                    <a href="<?= base_url('book.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>All Event Booking</span></a>
                 </li>
+
                 <li>
-                    <a href="<?= base_url('my-event') ?>"><i class="fa fa-calendar-check-o text-blue"></i> My Event(s)</a>
+                    <a href="<?= base_url('logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a>
                 </li>
-<!--                <li>-->
-<!--                    <a href="--><?//= base_url('gallery') ?><!--"><i class="fa fa-image text-blue"></i> <span>My Gallery</span></a>-->
-<!--                </li>-->
-                <li>
-                    <a href="<?= base_url('my-event') ?>"><i class="fa fa-home text-blue"></i> <span>Requested Venues</span></a>
-                </li>
-                <li>
-                    <a href="<?= base_url('ongoing-event') ?>"><i class="fa fa-calendar text-blue"></i> <span>Upcoming Events</span></a>
-                </li>
-                <li>
-                    <a href="<?= base_url('payment') ?>"><i class="fa fa-credit-card text-blue"></i> <span>Payment Transactions</span></a>
-                </li>
-                <li>
-                    <a href="<?= base_url('order-venue') ?>"><i class="fa fa-calendar-check-o text-blue"></i> Ordered Event Venue(s)</a>
-                </li>
-                <li>
-                    <a href="<?= base_url('calendar') ?>"><i class="fa fa-calendar-plus-o text-blue"></i> <span>Upcoming Events Calendar</span></a>
-                </li>
-                <li><a href="<?= base_url('logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->
