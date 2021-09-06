@@ -49,8 +49,9 @@
 <!-- Page specific script -->
 <script>
 
-    $(function () {
+    let event_type = JSON.parse('<?= json_encode($event_type_data) ?>');
 
+    $(function () {
 
         $('.timepicker').timepicker({
             'timeFormat': 'H:i:a',
@@ -59,19 +60,13 @@
             ]
         });
 
-        $("#event-date-countdown").countdown("<?= @$duration ?>", function(event) {
-            $(this).text(
-                event.strftime('%D Days : %H: Hrs %M: Mins %S Sec')
-            );
+        $("#event_type").change(function (e) {
+           for (var i =0; i < event_type.length; i++){
+               if ($(this).val() == event_type[i].id){
+                   $("#budget").val(event_type[i].price);
+               }
+           }
         });
-
-        function show_preloading(){
-            $(".preloading").removeClass('hide');
-        }
-
-        function hide_preloading(){
-            $('.preloading').addClass('hide');
-        }
 
         $('#example1').DataTable();
             $('#example2').DataTable({

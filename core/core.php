@@ -33,8 +33,8 @@
     define("HTML_BASE_TEMP", HTML_BASE."temp/");
 
     define("LIVE_POINT", "https://api.paystack.co/transaction/initialize");
-    define("PUBLIC_KEY", "pk_test_17bb6dbb22ba8726507755d62b517dd9c29e894f");
-    define("SECRET_KEY", "sk_test_16a5ceec1c517ad727ba7c742b71f0466c824205");
+    define("PUBLIC_KEY", "pk_test_70de42adc07d635f0054c987b72d5ecae97f2b65");
+    define("SECRET_KEY", "sk_test_4640c629e579b8b099b3b53cfba84f0ff3153b3c");
     define("LIVE_VERIFY_URL", "https://api.paystack.co/transaction/verify/");
 
     define("ADORABLE_AVATAR_API","https://api.adorable.io/avatars/");

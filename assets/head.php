@@ -4,6 +4,18 @@
     $current_date = date('m/d/Y');
     $sn = 1;
     user_is_required_to_login();
+
+    $event_type_data = array();
+
+    $sql_event_type = $db->query("SELECT * FROM ".DB_PREFIX."event_type ORDER BY id");
+
+    while ($type_rs = $sql_event_type->fetch(PDO::FETCH_ASSOC)){
+        $event_type_data[] = array(
+            'id'=>$type_rs['id'],
+            'name'=>$type_rs['name'],
+            'price'=>$type_rs['price']
+        );
+    }
 ?>
 <!DOCTYPE html>
 <html>

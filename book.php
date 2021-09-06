@@ -28,14 +28,16 @@ require_once 'assets/head.php';
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="">Event Type</label>
-                            <select name="event" required id="" class="form-control">
+                            <select name="event_type" required id="event_type" class="form-control">
                                 <option value="" disabled selected>Select</option>
                                 <?php
-                                    $sql = $db->query("SELECT * FROM ".DB_PREFIX."event_type ORDER BY id");
-                                    while ($rs = $sql->fetch(PDO::FETCH_ASSOC)){
-                                        ?>
-                                        <option value="<?= $rs['id'] ?>"><?= ucwords($rs['name']) ?></option>
-                                        <?php
+
+                                    if (is_array($event_type_data) && count($event_type_data) > 0){
+                                        foreach ($event_type_data as $value){
+                                            ?>
+                                            <option value="<?= $value['id'] ?>"><?= ucwords($value['name']) ?></option>
+                                            <?php
+                                        }
                                     }
                                 ?>
                             </select>
@@ -43,7 +45,12 @@ require_once 'assets/head.php';
 
                         <div class="form-group">
                             <label for="">Event Planing Budget</label>
-                            <input type="text" class="form-control" required readonly name="budget" id="" placeholder="Event Planing Budget">
+                            <input type="text" class="form-control" required readonly name="budget" id="budget" placeholder="Event Planing Budget">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Event Date</label>
+                            <input type="date" min="<?= date('Y-m-d') ?>" class="form-control" name="event_date" placeholder="Event Date" id="">
                         </div>
 
                         <div class="form-group">
@@ -57,7 +64,7 @@ require_once 'assets/head.php';
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" name="plan" class="btn btn-primary" value="Event Booking" id="">
+                            <input type="submit" name="plan" class="btn btn-primary" value="Proceed On Event Booking" id="">
                         </div>
                     </form>
 
