@@ -7,7 +7,7 @@
  */
 
 require_once '../core/core.php';
-unset($_SESSION['logged']);
-unset($_SESSION[ADMIN_SESSION_HOLDER]);
+unset($_SESSION['loggedin']);
+unset($_SESSION[USER_SESSION_HOLDER]);
 set_flash("You have successfully logged out","info");
 redirect(base_url("admin"));

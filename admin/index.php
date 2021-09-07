@@ -75,17 +75,19 @@
         <div class="form-holder">
             <div class="form-content">
                 <div class="form-items">
-                    <h3>Get more things done with Loggin platform.</h3>
-                    <p>Access to the most powerfull tool in the entire design and web industry.</p>
+
                     <div class="page-links">
-                        <a href="#" class="active">Login</a>
+                        <a href="#" class="active">Admin Login</a>
                     </div>
                     <?php flash(); ?>
                     <form method="post">
-                        <input class="form-control" style="border: #ccc solid thin; background: #fff;" value="<?= @$_POST['email'] ?>" type="email" name="email" placeholder="E-mail Address" required>
+                        <label for="">Email Address</label>
+                        <input class="form-control" style
+                        ="border: #ccc solid thin; background: #fff;" value="<?= @$_POST['email'] ?>" type="email" name="email" placeholder="E-mail Address" required>
+                        <label for="">Password</label>
                         <input class="form-control" style="border: #ccc solid thin; background: #fff;" type="password" name="password" placeholder="Password" required>
                         <div class="form-button">
-                            <button id="submit" type="submit" name="login" class="ibtn">Login</button> <a href="#">Forget password?</a>
+                            <button id="submit" type="submit" name="login" class="ibtn">Login</button>
                         </div>
                     </form>
                 </div>

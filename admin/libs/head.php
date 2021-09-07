@@ -131,6 +131,10 @@ if(isset($_COOKIE['design-skin'])){
                     </li>
 
                     <li>
+                        <a href="<?= base_url('admin/event-payment.php') ?>"><i class="fa fa-calendar text-blue"></i> <span>Event Booking Payment</span></a>
+                    </li>
+
+                    <li>
                         <a href="<?= base_url('admin/logout') ?>"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a>
                     </li>
                 </ul>
