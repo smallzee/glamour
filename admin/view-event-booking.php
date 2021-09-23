@@ -136,54 +136,53 @@ require_once 'libs/head.php';
                 </tr>
             </table>
 
-            <a href="" class="btn btn-primary"  data-toggle="modal" data-target="#modal-default">Plan Event</a>
+<!--            <a href="" class="btn btn-primary"  data-toggle="modal" data-target="#modal-default">Plan Event</a>-->
 
             <h5 class="page-header">Vendor Used For Event</h5>
 
             <div class="table-responsive">
-                <table class="table table-bordered" id="example">
+                <table class="table table-bordered" id="example1">
                     <thead>
                     <tr>
                         <th>SN</th>
-                        <th>Vendor Name</th>
-                        <th>Vendor Email Address</th>
-                        <th>Vendor Phone Number</th>
-                        <th>Vendor Address</th>
-                        <th>Vendor Profession</th>
-                        <th>Amount Paid For Vendor</th>
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th>Profession</th>
+                        <th>Venue Capacity</th>
+                        <th>Amount Paid</th>
+                        <th>Address</th>
                         <th>Date</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>SN</th>
-                        <th>Vendor Name</th>
-                        <th>Vendor Email Address</th>
-                        <th>Vendor Phone Number</th>
-                        <th>Vendor Address</th>
-                        <th>Vendor Profession</th>
-                        <th>Amount Paid For Vendor</th>
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th>Profession</th>
+                        <th>Venue Capacity</th>
+                        <th>Amount Paid</th>
+                        <th>Address</th>
                         <th>Date</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     <?php
-                        $sn =1;
-                        $sql3 = $db->query("SELECT e_b.*, v.name, v.email, v.phone, v.address, v.profession FROM ".DB_PREFIX."vendor_event_booking e_b INNER JOIN ".DB_PREFIX."vendor v ON e_b.vendor_id = v.id ORDER BY e_b.id");
-                        while ($rs3 = $sql3->fetch(PDO::FETCH_ASSOC)){
-                            ?>
-                            <tr>
-                                <td><?= $sn++ ?></td>
-                                <td><?= $rs3['name'] ?></td>
-                                <td><?= $rs3['email'] ?></td>
-                                <td><?= $rs3['phone'] ?></td>
-                                <td><?= $rs3['address'] ?></td>
-                                <td><?= $rs3['profession'] ?></td>
-                                <td><?= $rs3['amount_paid'] ?></td>
-                                <td><?= $rs3['created_at'] ?></td>
-                            </tr>
-                    <?php
-                        }
+                    $sql = $db->query("SELECT vb.*, v.profession, v.capacity, v.name, v.email, v.address FROM ".DB_PREFIX."book_vendor vb INNER JOIN ".DB_PREFIX."vendor v ON vb.vendor_id = v.id WHERE vb.booking_id='$booking_id'");
+                    while ($rs = $sql->fetch(PDO::FETCH_ASSOC)){
+                        ?>
+                        <tr>
+                            <td><?= $sn++ ?></td>
+                            <td><?= ucwords($rs['name']) ?></td>
+                            <td><?= $rs['email'] ?></td>
+                            <td><?= ucwords($rs['profession']) ?></td>
+                            <td><?= $rs['capacity'] ?></td>
+                            <td><?= amount_format($rs['amount']) ?></td>
+                            <td><?= $rs['address'] ?></td>
+                            <td><?= $rs['created_at'] ?></td>
+                        </tr>
+                        <?php
+                    }
                     ?>
                     </tbody>
                 </table>
