@@ -38,6 +38,7 @@ require_once 'assets/head.php';
                         <th>Description</th>
                         <th>Amount Paid</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -49,6 +50,7 @@ require_once 'assets/head.php';
                         <th>Description</th>
                         <th>Amount Paid</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -66,6 +68,7 @@ require_once 'assets/head.php';
                                     <td><?= $rs['description'] ?></td>
                                     <td><?= $rs['amount_paid'] ?></td>
                                     <td><?= $rs['status'] ?></td>
+                                    <td><a href="view-vendor.php?id=<?= $rs['id'] ?>" class="btn btn-primary btn-sm">View Vendors</a></td>
                                 </tr>
                                 <?php
                             }

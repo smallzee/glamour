@@ -493,6 +493,23 @@ function save_last_transaction_reference($ref,$data){
 
     $booking_id = $db->lastInsertId();
 
+    $vendor = $data['vendor_id'];
+
+    for ($i =0; $i < count($vendor); $i++){
+        $vendor_id = $vendor[$i];
+        $vendor_amount = vendor_details($vendor_id,'price');
+
+        $db->query("INSERT INTO ".DB_PREFIX."book_vendor (vendor_id,amount,user_id,booking_id)VALUES('$vendor_id','$vendor_amount','$user_id','$booking_id')");
+
+    }
+
     $db->query("INSERT INTO ".DB_PREFIX."transactions (user_id,booking_id,amount,reference)VALUES('$user_id','$booking_id','$amount','$ref')");
 
+}
+
+function vendor_details($id,$value){
+    global $db;
+    $sql = $db->query("SELECT * FROM ".DB_PREFIX."vendor WHERE id='$id'");
+    $rs = $sql->fetch(PDO::FETCH_ASSOC);
+    return $rs[$value];
 }

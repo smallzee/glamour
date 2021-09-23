@@ -36,6 +36,8 @@ require_once 'libs/head.php';
                             <th>Phone Number</th>
                             <th>Profession</th>
                             <th>Address</th>
+                            <th>Venue Capacity</th>
+                            <th>Amount</th>
                             <th>Created At</th>
                             <th>Action</th>
                         </tr>
@@ -48,6 +50,8 @@ require_once 'libs/head.php';
                             <th>Phone Number</th>
                             <th>Profession</th>
                             <th>Address</th>
+                            <th>Venue Capacity</th>
+                            <th>Amount</th>
                             <th>Created At</th>
                             <th>Action</th>
                         </tr>
@@ -65,6 +69,8 @@ require_once 'libs/head.php';
                                         <td><?= $rs['phone'] ?></td>
                                         <td><?= $rs['profession'] ?></td>
                                         <td><?= $rs['address'] ?></td>
+                                        <td><?= $rs['capacity'] ?></td>
+                                        <td><?= amount_format($rs['price']) ?></td>
                                         <td><?= $rs['created_at'] ?></td>
                                         <td><a href="edit-vendor.php?id=<?= $rs['id']; ?>" class="btn btn-primary btn-sm">Edit</a></td>
                                     </tr>

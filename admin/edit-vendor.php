@@ -29,8 +29,11 @@ if (isset($_POST['add'])){
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $profession = $_POST['profession'];
+    $price = $_POST['price'];
+    $capacity = $_POST['capacity'];
 
-    $db->query("UPDATE ".DB_PREFIX."vendor SET name='$name', phone='$phone', email='$email', phone='$phone', address='$address', profession='$profession' WHERE id='$id'");
+
+    $db->query("UPDATE ".DB_PREFIX."vendor SET name='$name', phone='$phone', email='$email', phone='$phone', address='$address', price='$price', capacity='$capacity', profession='$profession' WHERE id='$id'");
 
     set_flash("Vendor profile has been updated successfully","info");
     redirect(base_url('admin/edit-vendor.php?id='.$id));
@@ -75,6 +78,16 @@ require_once 'libs/head.php';
                     <div class="form-group">
                         <label for="">Vendor Profession</label>
                         <input type="text" value="<?= $rs['profession'] ?>" class="form-control" required placeholder="Vendor Profession" name="profession" id="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Venue Capacity (optional)</label>
+                        <input type="number" value="<?= $rs['capacity'] ?>" class="form-control" required placeholder="Event Capacity (optional)" name="capacity" id="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Price</label>
+                        <input type="text" value="<?= $rs['price'] ?>" class="form-control" placeholder="Price" name="price" id="">
                     </div>
 
                     <div class="form-group">

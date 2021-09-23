@@ -15,8 +15,11 @@ if (isset($_POST['add'])){
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $profession = $_POST['profession'];
+    $price = $_POST['price'];
+    $capacity = $_POST['capacity'];
 
-    $db->query("INSERT INTO ".DB_PREFIX."vendor (name,email,phone,address,profession)VALUES('$name','$email','$phone','$address','$profession')");
+
+    $db->query("INSERT INTO ".DB_PREFIX."vendor (name,email,phone,address,profession,price,capacity)VALUES('$name','$email','$phone','$address','$profession','$price','$capacity')");
 
     set_flash("New vendor has been created successfully","info");
     redirect(base_url('admin/create-new-vendor.php'));
@@ -56,6 +59,16 @@ require_once 'libs/head.php';
         <div class="form-group">
             <label for="">Vendor Phone Number</label>
             <input type="text" class="form-control" required placeholder="Phone Number" name="phone" id="">
+        </div>
+
+        <div class="form-group">
+            <label for="">Venue Capacity (optional)</label>
+            <input type="number" class="form-control" required placeholder="Event Capacity (optional)" name="capacity" id="">
+        </div>
+
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" class="form-control" placeholder="Price" name="price" id="">
         </div>
         
         <div class="form-group">
