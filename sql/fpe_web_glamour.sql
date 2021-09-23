@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 07, 2021 at 04:04 PM
+-- Generation Time: Sep 23, 2021 at 01:58 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.22
 
@@ -44,8 +44,29 @@ CREATE TABLE `kt_booking` (
 --
 
 INSERT INTO `kt_booking` (`id`, `user_id`, `event_type_id`, `amount_paid`, `status`, `event_location`, `event_date`, `description`, `created_at`) VALUES
-(1, 1, 1, 10000, 'success', 'Ede Osun State', '2021-09-15', 'I need good decoration and cake for my birth with one event hall', '2021-09-06 07:35:56'),
-(2, 1, 1, 10000, 'success', 'Ede Osun State', '2021-09-15', 'I need good decoration and cake for my birth with one event hall', '2021-09-06 07:37:24');
+(1, 2, 2, 20000, 'success', 'dd', '2021-09-30', 'dd', '2021-09-23 11:38:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kt_book_vendor`
+--
+
+CREATE TABLE `kt_book_vendor` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `vendor_id` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kt_book_vendor`
+--
+
+INSERT INTO `kt_book_vendor` (`id`, `user_id`, `vendor_id`, `booking_id`, `amount`, `created_at`) VALUES
+(1, 2, 1, 1, 20000, '2021-09-23 11:38:31');
 
 -- --------------------------------------------------------
 
@@ -82,7 +103,7 @@ CREATE TABLE `kt_transactions` (
   `booking_id` int(11) NOT NULL,
   `amount` decimal(10,0) NOT NULL,
   `reference` text NOT NULL,
-  `status` enum('initialized','failed','success','') NOT NULL DEFAULT 'initialized',
+  `status` enum('initialized','failed','success','') NOT NULL DEFAULT 'success',
   `verified` int(11) NOT NULL DEFAULT 0,
   `paid_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -93,8 +114,7 @@ CREATE TABLE `kt_transactions` (
 --
 
 INSERT INTO `kt_transactions` (`id`, `user_id`, `booking_id`, `amount`, `reference`, `status`, `verified`, `paid_at`, `created_at`) VALUES
-(1, 1, 1, '10000', 'wsiaz8sxfv', 'initialized', 0, '2021-09-06 07:35:56', '2021-09-06 07:35:56'),
-(2, 1, 2, '10000', 'eeja7p30j9', 'initialized', 0, '2021-09-06 07:37:24', '2021-09-06 07:37:24');
+(1, 2, 1, '20000', 'qqdrxrzts4', 'success', 0, '2021-09-23 11:38:31', '2021-09-23 11:38:31');
 
 -- --------------------------------------------------------
 
@@ -135,6 +155,8 @@ CREATE TABLE `kt_vendor` (
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `phone` varchar(100) NOT NULL,
+  `capacity` int(11) NOT NULL DEFAULT 0,
+  `price` double NOT NULL DEFAULT 0,
   `profession` varchar(100) NOT NULL,
   `address` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -144,8 +166,8 @@ CREATE TABLE `kt_vendor` (
 -- Dumping data for table `kt_vendor`
 --
 
-INSERT INTO `kt_vendor` (`id`, `name`, `email`, `phone`, `profession`, `address`, `created_at`) VALUES
-(1, 'Mrs tawakalitu', 'tawakat@gmail.com', '08060219615', 'Baker', 'Osun State', '2021-09-05 13:58:11');
+INSERT INTO `kt_vendor` (`id`, `name`, `email`, `phone`, `capacity`, `price`, `profession`, `address`, `created_at`) VALUES
+(1, 'Mrs tawakalitu', 'tawakat@gmail.com', '08060219615', 0, 20000, 'Baker', 'Osun State', '2021-09-05 13:58:11');
 
 -- --------------------------------------------------------
 
@@ -160,13 +182,6 @@ CREATE TABLE `kt_vendor_event_booking` (
   `amount_paid` double NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kt_vendor_event_booking`
---
-
-INSERT INTO `kt_vendor_event_booking` (`id`, `booking_id`, `vendor_id`, `amount_paid`, `created_at`) VALUES
-(1, 1, 1, 5000, '2021-09-07 13:51:13');
 
 -- --------------------------------------------------------
 
@@ -208,6 +223,12 @@ INSERT INTO `kt_venue` (`id`, `image`, `all_images`, `title`, `description`, `ve
 -- Indexes for table `kt_booking`
 --
 ALTER TABLE `kt_booking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kt_book_vendor`
+--
+ALTER TABLE `kt_book_vendor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -254,7 +275,13 @@ ALTER TABLE `kt_venue`
 -- AUTO_INCREMENT for table `kt_booking`
 --
 ALTER TABLE `kt_booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `kt_book_vendor`
+--
+ALTER TABLE `kt_book_vendor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kt_event_type`
@@ -266,7 +293,7 @@ ALTER TABLE `kt_event_type`
 -- AUTO_INCREMENT for table `kt_transactions`
 --
 ALTER TABLE `kt_transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kt_users`
@@ -284,7 +311,7 @@ ALTER TABLE `kt_vendor`
 -- AUTO_INCREMENT for table `kt_vendor_event_booking`
 --
 ALTER TABLE `kt_vendor_event_booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kt_venue`
